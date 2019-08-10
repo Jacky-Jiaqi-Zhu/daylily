@@ -40,11 +40,11 @@ const AccountProfile = props => {
   const classes = useStyles();
 
   const user = {
-    name: 'Shen Zhi',
-    city: 'Los Angeles',
-    country: 'USA',
-    timezone: 'GTM-7',
-    avatar: '/images/avatars/avatar_11.png'
+    name: 'Jiaqi Zhu',
+    city: 'Melbourne',
+    country: 'Australia',
+    timezone: 'GTM+10',
+    avatar: '/images/avatars/doge-sketch.jpg'
   };
 
   return (
@@ -59,7 +59,7 @@ const AccountProfile = props => {
               gutterBottom
               variant="h2"
             >
-              John Doe
+              {user.name}
             </Typography>
             <Typography
               className={classes.locationText}

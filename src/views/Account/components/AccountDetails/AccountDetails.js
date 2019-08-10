@@ -23,12 +23,12 @@ const AccountDetails = props => {
   const classes = useStyles();
 
   const [values, setValues] = useState({
-    firstName: 'Shen',
-    lastName: 'Zhi',
-    email: 'shen.zhi@devias.io',
+    firstName: 'Jiaqi',
+    lastName: 'Zhu',
+    email: 'jiaqi.zhu.jacky@gmail.com',
     phone: '',
-    state: 'Alabama',
-    country: 'USA'
+    state: 'VIC',
+    country: 'Australia'
   });
 
   const handleChange = event => {
@@ -40,17 +40,33 @@ const AccountDetails = props => {
 
   const states = [
     {
-      value: 'alabama',
-      label: 'Alabama'
+      value: 'VIC',
+      label: 'VIC'
     },
     {
-      value: 'new-york',
-      label: 'New York'
+      value: 'NSW',
+      label: 'NSW'
     },
     {
-      value: 'san-francisco',
-      label: 'San Francisco'
-    }
+      value: 'QSL',
+      label: 'QSL'
+    },
+    {
+      value: 'SA',
+      label: 'SA'
+    },
+    {
+      value: 'WA',
+      label: 'WA'
+    },
+    {
+      value: 'NT',
+      label: 'NT'
+    },
+    {
+      value: 'TAS',
+      label: 'TAS'
+    },
   ];
 
   return (
