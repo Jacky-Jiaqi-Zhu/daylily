@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { Divider, Drawer } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import PeopleIcon from '@material-ui/icons/People';
+import TodayIcon from '@material-ui/icons/Today';
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import TeamIcon from '@material-ui/icons/Group';
+import ProjectsIcon from '@material-ui/icons/Folder';
+// import PeopleIcon from '@material-ui/icons/People';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 import ImageIcon from '@material-ui/icons/Image';
@@ -49,10 +53,30 @@ const Sidebar = props => {
       icon: <DashboardIcon />
     },
     {
-      title: 'Users',
-      href: '/users',
-      icon: <PeopleIcon />
+      title: 'Today',
+      href: '/today',
+      icon: <TodayIcon />
     },
+    {
+      title: 'Schedule',
+      href: '/schedule',
+      icon: <ScheduleIcon />
+    },
+    {
+      title: 'Projects',
+      href: '/projects',
+      icon: <ProjectsIcon />
+    },
+    {
+      title: 'Teams',
+      href: '/teams',
+      icon: <TeamIcon />
+    },
+    // {
+    //   title: 'Users',
+    //   href: '/users',
+    //   icon: <PeopleIcon />
+    // },
     {
       title: 'Products',
       href: '/products',

@@ -6,6 +6,10 @@ import { Main as MainLayout, Minimal as MinimalLayout } from './layouts';
 
 import {
   Dashboard as DashboardView,
+  Today as TodayView,
+  Schedule as ScheduleView,
+  Teams as TeamsView,
+  Projects as ProjectsView,
   ProductList as ProductListView,
   UserList as UserListView,
   Typography as TypographyView,
@@ -36,6 +40,30 @@ const Routes = () => {
         exact
         layout={MainLayout}
         path="/users"
+      />
+      <RouteWithLayout
+        component={TodayView}
+        exact
+        layout={MainLayout}
+        path="/today"
+      />
+      <RouteWithLayout
+        component={ScheduleView}
+        exact
+        layout={MainLayout}
+        path="/schedule"
+      />
+      <RouteWithLayout
+        component={TeamsView}
+        exact
+        layout={MainLayout}
+        path="/teams"
+      />
+      <RouteWithLayout
+        component={ProjectsView}
+        exact
+        layout={MainLayout}
+        path="/projects"
       />
       <RouteWithLayout
         component={ProductListView}
