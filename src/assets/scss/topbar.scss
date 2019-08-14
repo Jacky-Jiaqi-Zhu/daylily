@@ -1,0 +1,19 @@
+.site-logo {
+    width: 36px;
+    height: 36px;
+    margin-right: 0.5rem;
+}
+
+.site-title {
+    color: #fff;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 24px;
+    line-height: 36px;
+    vertical-align: top;
+
+    .subtitle {
+        font-size: 12px;
+        line-height: 36px;
+        vertical-align: bottom;
+    }
+}
