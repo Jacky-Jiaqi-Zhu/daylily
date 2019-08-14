@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 
+import TaskList from '../../components/TaskList';
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3)
@@ -18,7 +20,7 @@ const Today = () => {
   return (
     <div className={classes.root}>
       <div className={classes.content}>
-        Today
+        <TaskList />
       </div>
     </div>
   );
