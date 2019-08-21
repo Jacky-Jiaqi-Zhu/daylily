@@ -5,95 +5,50 @@ import { makeStyles } from '@material-ui/styles';
 import { Card, CardContent, Grid, Typography, Avatar } from '@material-ui/core';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import MoneyIcon from '@material-ui/icons/Money';
+import { connect } from 'react-redux';
+import { initTasks } from '../../redux/actions'
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    height: '100%'
-  },
-  content: {
-    alignItems: 'center',
-    display: 'flex'
-  },
-  title: {
-    fontWeight: 700
-  },
-  avatar: {
-    backgroundColor: theme.palette.error.main,
-    height: 56,
-    width: 56
-  },
-  icon: {
-    height: 32,
-    width: 32
-  },
-  difference: {
-    marginTop: theme.spacing(2),
-    display: 'flex',
-    alignItems: 'center'
-  },
-  differenceIcon: {
-    color: theme.palette.error.dark
-  },
-  differenceValue: {
-    color: theme.palette.error.dark,
-    marginRight: theme.spacing(1)
-  }
+
 }));
 
-const Task = props => {
-  const { className, ...rest } = props;
+const TaskList = ({ tasks, initTasks }) => {
 
-  const classes = useStyles();
+  console.log(tasks)
+  // const tasks = tasks
 
   return (
-    <Card
-      {...rest}
-      className={clsx(classes.root, className)}
-    >
-      <CardContent>
-        <Grid
-          container
-          justify="space-between"
-        >
-          <Grid item>
-            <Typography
-              className={classes.title}
-              color="textSecondary"
-              gutterBottom
-              variant="body2"
-            >
-              Task
-            </Typography>
-            <Typography variant="h3">$24,000</Typography>
-          </Grid>
-          <Grid item>
-            <Avatar className={classes.avatar}>
-              <MoneyIcon className={classes.icon} />
-            </Avatar>
-          </Grid>
-        </Grid>
-        <div className={classes.difference}>
-          <ArrowDownwardIcon className={classes.differenceIcon} />
-          <Typography
-            className={classes.differenceValue}
-            variant="body2"
-          >
-            12%
-          </Typography>
-          <Typography
-            className={classes.caption}
-            variant="caption"
-          >
-            Since last month
-          </Typography>
-        </div>
-      </CardContent>
-    </Card>
-  );
+    <div>
+      {
+        tasks.map((task) =>
+          (
+            <Card key={task.id}>
+              <CardContent>
+                <Typography>{task.name}</Typography>
+                <Typography>{task.desc}</Typography>                
+              </CardContent>
+            </Card>
+          )
+        )
+      }
+
+    </div>
+  )
+
+}
+
+TaskList.propTypes = {
+  tasks: PropTypes.array
 };
 
-Task.propTypes = {
-  className: PropTypes.string
-};
+const mapStateToProps = state => ({
+  tasks: state.tasksReducer.tasks
+})
 
-export default Task;
+
+
+const mapDispatchToProps = dispatch => ({
+  initTasks: dispatch(initTasks())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskList);

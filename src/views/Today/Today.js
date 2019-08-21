@@ -20,7 +20,7 @@ const Today = () => {
   return (
     <div className={classes.root}>
       <div className={classes.content}>
-        <TaskList />
+        <TaskList tasks={[]} />
       </div>
     </div>
   );

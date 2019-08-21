@@ -6,6 +6,9 @@ import store from './redux/store';
 
 import * as serviceWorker from './serviceWorker';
 import App from './App';
+import { initTasks } from './redux/actions'
+
+store.dispatch(initTasks())
 
 ReactDOM.render(
   <Provider store={store}>
