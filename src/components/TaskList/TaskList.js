@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
@@ -6,16 +6,31 @@ import { Card, CardContent, Grid, Typography, Avatar } from '@material-ui/core';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import MoneyIcon from '@material-ui/icons/Money';
 import { connect } from 'react-redux';
-import { initTasks } from '../../redux/actions'
+import { updateTasks } from '../../redux/actions'
 
 const useStyles = makeStyles(theme => ({
 
 }));
 
-const TaskList = ({ tasks, initTasks }) => {
+const TaskList = ({ tasks, updateTasks }) => {
 
-  console.log(tasks)
-  // const tasks = tasks
+  useEffect(() => {
+    fetch('http://localhost:1234/tasks/list', {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then(
+      (response) => {
+        return response.json().then(
+          (tasks) => {
+            updateTasks(tasks)
+          }
+        )
+      }
+    )
+  }, []);
 
   return (
     <div>
@@ -25,7 +40,7 @@ const TaskList = ({ tasks, initTasks }) => {
             <Card key={task.id}>
               <CardContent>
                 <Typography>{task.name}</Typography>
-                <Typography>{task.desc}</Typography>                
+                <Typography>{task.desc}</Typography>
               </CardContent>
             </Card>
           )
@@ -48,7 +63,7 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch => ({
-  initTasks: dispatch(initTasks())
+  updateTasks: (tasks) => { dispatch(updateTasks(tasks)) }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList);
